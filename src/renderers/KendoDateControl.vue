@@ -7,7 +7,6 @@
       class="k-mb-5"
     >
         <KendoDate 
-            :label="control.label" 
             :id="control.id + '-input'"
             :class="styles.control.input"
             :valid="!control.errors"

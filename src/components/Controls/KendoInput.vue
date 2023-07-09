@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts">
-    import { Error, Hint, Label } from "@progress/kendo-vue-labels";
     import { Input as kInput } from "@progress/kendo-vue-inputs";
 
     export default {
@@ -32,24 +31,7 @@
             }
         },
         components: {
-            error: Error,
-            Hint,
-            klabel: Label,
             kInput
-        },
-        computed: {
-            showValidationMessage() : any {
-                return this.$props.touched && this.$props.validationMessage;
-            },
-            showHint() : any {
-                return !this.showValidationMessage && this.$props.hint;
-            },
-            hintId() : any {
-                return this.showHint() ? `${this.$props.id}_hint` : "";
-            },
-            errorId() : any {
-                return this.showValidationMessage() ? `${this.$props.id}_error` : "";
-            }
         },
         emits: {
             input: null,
