@@ -46,7 +46,8 @@
             },
             email: {
               type: "string",
-              format: "email",
+              // format: "email",
+              pattern: "^\\S+@\\S+\\.\\S+$",
             },
             age: {
               type: "number",
