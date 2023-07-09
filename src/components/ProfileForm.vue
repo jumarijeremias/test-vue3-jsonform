@@ -9,7 +9,7 @@
         @change="onChange"
       />
       <br>
-      <kButton :disabled="data.age < 18" theme-color="success">
+      <kButton :disabled="data.age < 18" theme-color="primary">
         Next
       </kButton>
     </kCardBody>
@@ -27,9 +27,11 @@ import {
   Card as kCard,
   CardBody as kCardBody,
 } from "@progress/kendo-vue-layout";
+import { entry as KendoInputControl } from './controls/KendoInputControl.vue';
   
 const renderers = [
   ...vanillaRenderers,
+  KendoInputControl
 ];
   
 export default defineComponent({

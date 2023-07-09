@@ -15,11 +15,13 @@
     "@jsonforms/vue": "^3.1.0",
     "@jsonforms/vue-vanilla": "^3.1.0",
     "@progress/kendo-theme-default": "^6.5.0",
+    "@progress/kendo-theme-material": "^6.5.0",
     "@progress/kendo-vue-buttons": "^3.11.0",
     "@progress/kendo-vue-dateinputs": "^3.11.0",
     "@progress/kendo-vue-inputs": "^3.11.0",
     "@progress/kendo-vue-layout": "^3.11.0",
     "moment": "^2.29.4",
+    "sass": "^1.63.6",
     "vue": "^3.3.4"
   },
   "devDependencies": {
