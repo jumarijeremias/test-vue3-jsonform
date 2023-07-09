@@ -6,6 +6,10 @@
       :renderers="renderers"
       @change="onChange"
     />
+    <br>
+    <button :disabled="data.age < 18">
+      Next
+    </button>
   </template>
   
   <script lang="ts">
