@@ -13,6 +13,7 @@
   import { JsonForms } from '@jsonforms/vue';
   import { vanillaRenderers } from '@jsonforms/vue-vanilla';
   import { defineComponent } from 'vue';
+  import moment from 'moment';
   
   const renderers = [
     ...vanillaRenderers,
@@ -76,6 +77,15 @@
               type: 'Control',
               label: "Email",
               scope: '#/properties/email',
+              rule: {
+                effect: "SHOW",
+                condition: {
+                  scope: "#/properties/age",
+                  schema: { 
+                    minimum: 19,
+                  }
+                }
+              }
             },
           ],
         },
@@ -83,7 +93,12 @@
     },
     methods: {
       onChange(event: any) {
+        // calculate age value
+        event.data.age = event.data.birthDay ? moment().diff(moment(event.data.birthDay, 'YYYY-MM-DD'), 'years') : 0;
+
         this.data = event.data;
+
+        console.log(this.data)
       },
     },
   });
