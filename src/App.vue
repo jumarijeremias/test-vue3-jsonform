@@ -1,13 +1,7 @@
 <script setup lang="ts">
+  import ProfileForm from './components/ProfileForm.vue';
 </script>
 
 <template>
-  <header>
-  </header>
-
-  <main>
-  </main>
+  <ProfileForm />
 </template>
-
-<style scoped>
-</style>
