@@ -1,16 +1,20 @@
 <template>
-    <json-forms
-      :data="data"
-      :schema="schema"
-      :uischema="uischema"
-      :renderers="renderers"
-      @change="onChange"
-    />
-    <br>
-    <kButton :disabled="data.age < 18" theme-color="success">
-      Next
-    </kButton>
-  </template>
+  <kCard>
+    <kCardBody>
+      <json-forms
+        :data="data"
+        :schema="schema"
+        :uischema="uischema"
+        :renderers="renderers"
+        @change="onChange"
+      />
+      <br>
+      <kButton :disabled="data.age < 18" theme-color="success">
+        Next
+      </kButton>
+    </kCardBody>
+  </kCard>
+</template>
   
 <script lang="ts">
   
@@ -19,6 +23,10 @@ import { vanillaRenderers } from '@jsonforms/vue-vanilla';
 import { defineComponent } from 'vue';
 import { Button as kButton } from '@progress/kendo-vue-buttons';
 import moment from 'moment';
+import {
+  Card as kCard,
+  CardBody as kCardBody,
+} from "@progress/kendo-vue-layout";
   
 const renderers = [
   ...vanillaRenderers,
@@ -28,6 +36,8 @@ export default defineComponent({
   components: {
     JsonForms,
     kButton,
+    kCard,
+    kCardBody,
   },
   data() {
     return {
