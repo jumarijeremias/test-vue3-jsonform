@@ -1,19 +1,20 @@
 <template>
-    <kInput
+    <datepicker 
+        :format="'dd/MMMM/yyyy'" 
         :valid="valid"
         :id="id"
-        :value="value"
         :disabled="disabled"
         :placeholder="placeholder"
-        @input="handleChange"
+        @change="handleChange"
         @blur="handleBlur"
         @focus="handleFocus"
-    />
+    >
+    </datepicker>
 </template>
 
 <script lang="ts">
-    import { Error, Hint, Label } from "@progress/kendo-vue-labels";
-    import { Input as kInput } from "@progress/kendo-vue-inputs";
+    import { DatePicker } from '@progress/kendo-vue-dateinputs';
+    import moment from 'moment';
 
     export default {
         props: {
@@ -26,30 +27,9 @@
             hint: String,
             id: String,
             valid: Boolean,
-            value: {
-                type: String,
-                default: ''
-            }
         },
         components: {
-            error: Error,
-            Hint,
-            klabel: Label,
-            kInput
-        },
-        computed: {
-            showValidationMessage() : any {
-                return this.$props.touched && this.$props.validationMessage;
-            },
-            showHint() : any {
-                return !this.showValidationMessage && this.$props.hint;
-            },
-            hintId() : any {
-                return this.showHint() ? `${this.$props.id}_hint` : "";
-            },
-            errorId() : any {
-                return this.showValidationMessage() ? `${this.$props.id}_error` : "";
-            }
+            datepicker: DatePicker,
         },
         emits: {
             input: null,
@@ -59,6 +39,8 @@
         },
         methods: {
             handleChange(e: any){
+                let dateValue = moment(e.value).format('YYYY-MM-DD');
+                e.value = e.target.value = dateValue;
                 this.$emit('change', e);
             },
             handleBlur(e: any){
@@ -68,6 +50,6 @@
                 this.$emit('focus', e);
             }
         }
-    }
-
-</script>
+    };
+    
+    </script>

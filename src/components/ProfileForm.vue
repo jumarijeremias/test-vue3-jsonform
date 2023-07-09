@@ -27,11 +27,11 @@ import {
   Card as kCard,
   CardBody as kCardBody,
 } from "@progress/kendo-vue-layout";
-import { entry as KendoInputControl } from './controls/KendoInputControl.vue';
+import customRenderers from '../renderers';
   
 const renderers = [
   ...vanillaRenderers,
-  KendoInputControl
+  ...customRenderers,
 ];
   
 export default defineComponent({
